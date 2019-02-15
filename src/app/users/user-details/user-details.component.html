@@ -1,0 +1,17 @@
+<div class="container-header">
+    <h1 class="text-center">{{pageTitle}}</h1>
+  </div>
+  <div class="container">
+      <h2>User Details:</h2>
+    </div>
+    <div class="table-responsive col-sm-6">
+        <table class="table text-center">
+          <thead>
+            <tr *ngFor='let userdetail of userdetails'>
+              <th class="bg-primary">{{userdetail.completed}}
+              </th>
+            </tr>
+          </thead>
+        </table>
+      
+      </div>
