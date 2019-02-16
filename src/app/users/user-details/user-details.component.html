@@ -7,8 +7,9 @@
     <div class="table-responsive col-sm-6">
         <table class="table text-center">
           <thead>
-            <tr *ngFor='let userdetail of userdetails'>
-              <th class="bg-primary">{{userdetail.completed}}
+            <tr *ngFor='let userdetail of userdetails' [hidden]="userdetail.id!=userId">
+              <th class="bg-primary">User ID: {{userdetail.id}}<br>
+                  Completed:{{userdetail.completed}}
               </th>
             </tr>
           </thead>

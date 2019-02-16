@@ -19,6 +19,7 @@ getUserDetails() {
 
 
   ngOnInit(): void {
+    this.userId=this.route.snapshot.params['id'];
     this.getUserDetails().subscribe(
       (userdetails: any) => this.userdetails = userdetails
     );
