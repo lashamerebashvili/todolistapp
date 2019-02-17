@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { UserDetailService } from './user-details.service';
 
 @Component({
   templateUrl: './user-details.component.html',
@@ -11,16 +11,14 @@ export class UserDetailsComponent implements OnInit {
   userdetails: any[] = [];
   public userId;
   
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private userDetailService: UserDetailService, private route: ActivatedRoute) { }
 
-getUserDetails() {
-    return this.http.get('https://jsonplaceholder.typicode.com/todos')
-  }
+
 
 
   ngOnInit(): void {
     this.userId=this.route.snapshot.params['id'];
-    this.getUserDetails().subscribe(
+    this.userDetailService.getUserDetails().subscribe(
       (userdetails: any) => this.userdetails = userdetails
     );
     }

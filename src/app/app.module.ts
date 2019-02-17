@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { RouterModule } from '@angular/router';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
+import { UserService } from './users/users.service';
 
 @NgModule({
   declarations: [
@@ -21,11 +22,11 @@ import { UserDetailsComponent } from './users/user-details/user-details.componen
     RouterModule.forRoot( [
       {
         path:'', 
-      component: UsersComponent, pathMatch: 'full'
+      component: UsersComponent
       },
       { 
         path:'users/:id', 
-        component: UserDetailsComponent, pathMatch: 'full'
+        component: UserDetailsComponent
       },
       { 
         path:'users', 
