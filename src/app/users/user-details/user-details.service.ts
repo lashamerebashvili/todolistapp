@@ -5,7 +5,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserDetailService {
     constructor(private http: HttpClient) { }
-    getUserDetails() {
-        return this.http.get('https://jsonplaceholder.typicode.com/todos');
+
+    
+    getUserDetails(userId) {
+        return this.http.get('https://jsonplaceholder.typicode.com/todos' + "?userId=" + userId);
     }
 }

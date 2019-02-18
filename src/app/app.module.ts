@@ -8,14 +8,11 @@ import { UsersComponent } from './users/users.component';
 import { RouterModule } from '@angular/router';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { UserService } from './users/users.service';
-import { WelcomeComponent } from './welcome/welcome.component';
-
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     UserDetailsComponent,
-    WelcomeComponent
   ],
   imports: [
     BrowserModule,
