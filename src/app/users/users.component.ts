@@ -8,8 +8,6 @@ import { UserService } from './users.service';
 })
 export class UsersComponent implements OnInit {
 users: any[] = [];
-  
-  pageTitle: string = 'To do list app';
 
   constructor(private userService: UserService) {
 

@@ -7,8 +7,12 @@
     <div class="table-responsive col-sm-6">
         <table class="table text-center">
           <thead>
-            <tr *ngFor='let userdetail of userdetails' [hidden]="userdetail.id!=userId">
-              <th class="bg-primary">User ID: {{userdetail.id}}<br>
+            <tr 
+            *ngFor='let userdetail of userdetails' 
+            [hidden]="userdetail.id!=userId">
+              <th [ngStyle] = "{backgroundColor: userdetail.completed?
+                'green' : 'red'}">
+              User ID: {{userdetail.id}}<br>
                   Completed:{{userdetail.completed}}
               </th>
             </tr>
