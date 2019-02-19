@@ -1,0 +1,17 @@
+nav {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li a{
+    margin: 10px;
+}
+
+.welcome {
+    height: 500px;
+    margin-top: 200px;
+    font-size: 90px;
+}

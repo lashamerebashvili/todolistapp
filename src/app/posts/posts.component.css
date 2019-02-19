@@ -1,0 +1,11 @@
+.title {
+    color: blue;
+}
+
+tr th p {
+    width: 90%;
+}
+
+.userTable {
+    margin-top: 60px;
+}
