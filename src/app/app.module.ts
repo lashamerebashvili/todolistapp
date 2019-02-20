@@ -11,6 +11,7 @@ import { UserDetailsComponent } from './users/user-details/user-details.componen
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PostsComponent } from './posts/posts.component';
 import { FormsComponent } from './posts/forms/forms.component';
+import { FormAddComponent } from './posts/form-add/form-add.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { FormsComponent } from './posts/forms/forms.component';
     UserDetailsComponent,
     WelcomeComponent,
     PostsComponent,
-    FormsComponent
+    FormsComponent,
+    FormAddComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,10 @@ import { FormsComponent } from './posts/forms/forms.component';
       { 
         path:'posts/:id', 
         component: FormsComponent
+      },
+      {
+        path:'form-add',
+        component: FormAddComponent
       }
     ])
   ],

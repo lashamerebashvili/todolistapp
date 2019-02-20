@@ -13,4 +13,12 @@ export class FormService {
         return this.http.get('https://jsonplaceholder.typicode.com/posts'
         + "?id=" + id)
       }
+
+    // storeForms(forms: any[]) {
+    //     return this.http.post('https://jsonplaceholder.typicode.com/posts',
+    //     forms)
+    // }
+
+    
+
 }
