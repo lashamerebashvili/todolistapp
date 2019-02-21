@@ -12,7 +12,7 @@
 <form #postForm="ngForm">
     <div class="form-group">
         <label for="title">Title</label>
-        <input [(ngModel)]="forms.title"
+        <input [(ngModel)]="formService.form.title"
         name="title"  
         id="title" 
         type="text" 
@@ -21,7 +21,7 @@
     </div>
     <div class="form-group">
       <label for="body">Body</label>
-      <textarea  [(ngModel)]="forms.body"
+      <textarea  [(ngModel)]="formService.form.body"
       name= "body" 
       id="body" 
       cols="30" 
@@ -29,6 +29,6 @@
       class="form-control"
       ></textarea>
     </div>
-    <button class="btn btn-success" (click) = addForm()>Add</button>
+    <button class="btn btn-success" (click) = "formService.addForm()">Add</button>
 </form>
 </div>

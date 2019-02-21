@@ -14,7 +14,7 @@
             *ngFor='let userdetail of userdetails' >
             <th [ngStyle] = "{backgroundColor: userdetail.completed?
                 'green' : 'red'}">
-              title: {{userdetail.title}}<br>
+              Title: {{userdetail.title}}<br>
                   Completed:{{userdetail.completed}}
               </th>
             </tr>

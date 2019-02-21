@@ -11,7 +11,8 @@ import { UserDetailsComponent } from './users/user-details/user-details.componen
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PostsComponent } from './posts/posts.component';
 import { FormsComponent } from './posts/forms/forms.component';
-import { FormAddComponent } from './posts/form-add/form-add.component';
+import { FormService } from './posts/forms/forms.service';
+import { FormAddComponent } from './posts/forms/form-add/form-add.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,7 @@ import { FormAddComponent } from './posts/form-add/form-add.component';
       }
     ])
   ],
-  providers: [],
+  providers: [FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
