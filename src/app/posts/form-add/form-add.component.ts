@@ -9,8 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./form-add.component.css']
 })
 export class FormAddComponent implements OnInit {
-  private formUrl = "https://jsonplaceholder.typicode.com/posts";
-
+  
   forms: form = {
     "id": 0,
     "userId": 0,
@@ -27,16 +26,19 @@ export class FormAddComponent implements OnInit {
   }
   
       addForm() {
-        fetch(this.formUrl, {
-          method: 'POST',
-          body: JSON.stringify(this.forms),
-          headers: {
-            "Content-type": "application/json; charset=UTF-8"
+        this.http.post("https://jsonplaceholder.typicode.com/posts",
+          this.forms)
+          .subscribe(
+          data  => {
+          console.log("POST Request is successful ", data);
+          },
+          error  => {
+
+          console.log("Error", error);
+
           }
-        })
-        .then(response => response.json())
-        .then(json => console.log(json))
-        
+
+          );
         
     }
 
