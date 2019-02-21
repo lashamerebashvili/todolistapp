@@ -37,7 +37,7 @@ export class FormsComponent implements OnInit {
     );
   }
 
-  editForm(){
+  editForm() {
     fetch(this.formsUrl + "/" + this.form.id, {
       method: 'PUT',
       body: JSON.stringify(this.form),
@@ -47,6 +47,19 @@ export class FormsComponent implements OnInit {
     })
     .then(response => response.json())
     .then(json => console.log(json));
+  }
+
+  deleteForm() {
+    this.http.delete(this.formsUrl + "/" + this.form.id)
+    .subscribe(
+      data  => {
+      console.log("DELETE Request is successful ", data);
+      },
+      error  => {
+      console.log("Error", error);
+      }
+
+    );
   }
 
 }
