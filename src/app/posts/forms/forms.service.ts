@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { form } from './form-interface';
+import { Subject } from 'rxjs';
 
 
 
@@ -9,17 +10,21 @@ import { form } from './form-interface';
 }) 
 
 export class FormService {
+  
 
-formsUrl = "https://jsonplaceholder.typicode.com/posts";
-form: form = {
-    id: 0,
-    userId: 0,
-    title: '',
-    body: ''
+  formsUrl = "https://jsonplaceholder.typicode.com/posts";
+  form: form = {
+      id: 0,
+      userId: 0,
+      title: '',
+      body: ''
   };
+  private _success = new Subject<string>();
 
 
     constructor(private http: HttpClient) { }
+
+
 
     getForms(id) {
             return this.http.get('https://jsonplaceholder.typicode.com/posts'
@@ -42,29 +47,15 @@ form: form = {
         this.http.delete(this.formsUrl + "/" + this.form.id)
         .subscribe(
           data  => {
-          console.log("DELETE Request is successful ", data);
+            console.log("DELETE Request is successful ", data);
+            this._success.next(`${new Date()} - Message successfully changed.`);
           },
           error  => {
-          console.log("Error", error);
+            console.log("Error", error);
           }
         );
+        
       }
 
-
-    addForm() {
-        this.http.post("https://jsonplaceholder.typicode.com/posts",
-          this.form)
-          .subscribe(
-          data  => {
-          console.log("POST Request is successful ", data);
-          },
-          error  => {
-
-          console.log("Error", error);
-
-          }
-
-          );
-    }
 
 }

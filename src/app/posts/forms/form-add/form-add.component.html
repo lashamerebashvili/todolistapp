@@ -1,3 +1,4 @@
+
 <div class="container">
   <a class="btn btn-primary pull-right" routerLink = '/posts' >
     Back
@@ -12,7 +13,7 @@
 <form #postForm="ngForm">
     <div class="form-group">
         <label for="title">Title</label>
-        <input [(ngModel)]="formService.form.title"
+        <input [(ngModel)]="form.title"
         name="title"  
         id="title" 
         type="text" 
@@ -21,7 +22,7 @@
     </div>
     <div class="form-group">
       <label for="body">Body</label>
-      <textarea  [(ngModel)]="formService.form.body"
+      <textarea  [(ngModel)]="form.body"
       name= "body" 
       id="body" 
       cols="30" 
@@ -29,6 +30,6 @@
       class="form-control"
       ></textarea>
     </div>
-    <button class="btn btn-success" (click) = "formService.addForm()">Add</button>
+    <button class="btn btn-success" (click) = "addForm()">Add</button>
 </form>
 </div>
