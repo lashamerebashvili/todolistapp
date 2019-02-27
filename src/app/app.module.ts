@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
-import { AlertsModule } from 'angular-alert-module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
@@ -30,7 +29,6 @@ import { FormAddComponent } from './posts/forms/form-add/form-add.component';
     HttpClientModule,
     FormsModule,
     NgbModule,
-    AlertsModule.forRoot(),
     RouterModule.forRoot( [
       {
         path:'', 

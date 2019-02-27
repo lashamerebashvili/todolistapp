@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormService } from './forms.service';
 import { HttpClient } from '@angular/common/http';
+import { alert } from './alert';
 
 @Component({
   selector: 'app-forms',
@@ -11,7 +12,8 @@ import { HttpClient } from '@angular/common/http';
 
 
 export class FormsComponent implements OnInit {
-
+  
+  alert: alert;
   id: any;
   posts: any;
 
@@ -22,19 +24,13 @@ export class FormsComponent implements OnInit {
 
   ngOnInit() {
     this.id=this.route.snapshot.params['id'];
-
-    
+    this.alert = new alert();
 
     this.posts = this.formService.getForms(this.id).subscribe(
       (forms: any) => {
         this.formService.form = forms[0];
-        console.log(this.formService.form);
       }
     );
   }
-
-  ngOnDestroy() {
-    this.posts.unsubscribe();
-  }
-
+  
 }

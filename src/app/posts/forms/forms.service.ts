@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { form } from './form-interface';
-import { Subject } from 'rxjs';
-
+import { alert } from './alert';
 
 
 @Injectable({
@@ -10,7 +9,6 @@ import { Subject } from 'rxjs';
 }) 
 
 export class FormService {
-  
 
   formsUrl = "https://jsonplaceholder.typicode.com/posts";
   form: form = {
@@ -19,12 +17,12 @@ export class FormService {
       title: '',
       body: ''
   };
-  private _success = new Subject<string>();
+  alert: alert;
 
 
-    constructor(private http: HttpClient) { }
-
-
+    constructor(private http: HttpClient) { 
+      this.alert = new alert();
+    }
 
     getForms(id) {
             return this.http.get('https://jsonplaceholder.typicode.com/posts'
@@ -40,7 +38,7 @@ export class FormService {
           }
         })
         .then(response => response.json())
-        .then(json => console.log(json));
+        this.alert.setAlert("Post has been successfully saved !");
     }
 
     deleteForm() {
@@ -48,14 +46,13 @@ export class FormService {
         .subscribe(
           data  => {
             console.log("DELETE Request is successful ", data);
-            this._success.next(`${new Date()} - Message successfully changed.`);
+            this.alert.setAlert("Post has been successfully deleted !");
+
           },
           error  => {
             console.log("Error", error);
           }
         );
-        
       }
-
 
 }

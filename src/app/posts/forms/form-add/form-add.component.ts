@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormService } from '../forms.service';
-import { AlertsService } from 'angular-alert-module';
 import { form } from '../form-interface';
+import { alert } from '../alert';
 
 @Component({
   selector: 'app-form-add',
@@ -21,11 +21,13 @@ export class FormAddComponent implements OnInit {
     body: ''
 };
 
+alert: alert;
+
   constructor(public formService: FormService, private http: HttpClient, private route: ActivatedRoute,
-    private router: Router, private alerts: AlertsService) { }
+    private router: Router) { }
 
   ngOnInit() {
-    
+    this.alert = new alert();
   }
 
     addForm() {
@@ -34,6 +36,7 @@ export class FormAddComponent implements OnInit {
         .subscribe(
         data  => {
           console.log("POST Request is successful ", data);
+          this.alert.setAlert("New post has been successfully added !");
         },
         error  => {
           console.log("Error", error);
