@@ -47,7 +47,6 @@ export class FormService {
           data  => {
             console.log("DELETE Request is successful ", data);
             this.alert.setAlert("Post has been successfully deleted !");
-
           },
           error  => {
             console.log("Error", error);

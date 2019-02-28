@@ -31,7 +31,7 @@ import { FormAddComponent } from './posts/forms/form-add/form-add.component';
     NgbModule,
     RouterModule.forRoot( [
       {
-        path:'', 
+        path:'welcome', 
       component: WelcomeComponent
       },
       { 
@@ -53,6 +53,16 @@ import { FormAddComponent } from './posts/forms/form-add/form-add.component';
       {
         path:'form-add',
         component: FormAddComponent
+      },
+      {
+        path:'',
+        redirectTo: 'welcome',
+        pathMatch: 'full' 
+      },
+      {
+        path: '**',
+        redirectTo: 'welcome',
+        pathMatch: 'full' 
       }
     ])
   ],
