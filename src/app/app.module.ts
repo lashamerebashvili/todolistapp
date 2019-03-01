@@ -1,33 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
-import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
-import { UsersComponent } from './users/users.component';
 import { RouterModule } from '@angular/router';
-import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PostsComponent } from './posts/posts.component';
-import { FormsComponent } from './posts/forms/forms.component';
 import { FormService } from './posts/forms/forms.service';
-import { FormAddComponent } from './posts/forms/form-add/form-add.component';
+import { FormModule } from './posts/forms/form.module';
+import { UserModule } from './users/user.module';
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
-    UserDetailsComponent,
     WelcomeComponent,
-    PostsComponent,
-    FormsComponent,
-    FormAddComponent
+    PostsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
     NgbModule,
     RouterModule.forRoot( [
       {
@@ -35,24 +27,8 @@ import { FormAddComponent } from './posts/forms/form-add/form-add.component';
       component: WelcomeComponent
       },
       { 
-        path:'users/:id', 
-        component: UserDetailsComponent
-      },
-      { 
-        path:'users', 
-        component: UsersComponent
-      },
-      { 
         path:'posts', 
         component: PostsComponent
-      },
-      { 
-        path:'posts/:id', 
-        component: FormsComponent
-      },
-      {
-        path:'form-add',
-        component: FormAddComponent
       },
       {
         path:'',
@@ -64,7 +40,9 @@ import { FormAddComponent } from './posts/forms/form-add/form-add.component';
         redirectTo: 'welcome',
         pathMatch: 'full' 
       }
-    ])
+    ]),
+    FormModule,
+    UserModule,
   ],
   providers: [FormService], 
   bootstrap: [AppComponent]
