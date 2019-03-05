@@ -30,7 +30,7 @@ export class FormService {
     }
 
     editForm() {
-        fetch(this.formsUrl + "/" + this.form.id, {
+        return fetch(this.formsUrl + "/" + this.form.id, {
           method: 'PUT',
           body: JSON.stringify(this.form),
           headers: {
@@ -38,20 +38,10 @@ export class FormService {
           }
         })
         .then(response => response.json())
-        this.alert.setAlert("Post has been successfully saved !");
     }
 
     deleteForm() {
-        this.http.delete(this.formsUrl + "/" + this.form.id)
-        .subscribe(
-          data  => {
-            console.log("DELETE Request is successful ", data);
-            this.alert.setAlert("Post has been successfully deleted !");
-          },
-          error  => {
-            console.log("Error", error);
-          }
-        );
+        return this.http.delete(this.formsUrl + "/" + this.form.id);
       }
 
 }

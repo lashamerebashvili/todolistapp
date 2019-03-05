@@ -32,5 +32,23 @@ export class FormsComponent implements OnInit {
       }
     );
   }
+
+  editPost() {
+    this.formService.editForm().then((res:any) => {
+      this.formService.alert.setAlert("Post has been successfully saved !");
+    })
+  }
+
+  deletePost() {
+    this.formService.deleteForm().subscribe(
+      data  => {
+        console.log("DELETE Request is successful ", data);
+          this.formService.alert.setAlert("Post has been successfully deleted !");
+      },
+      error  => {
+        console.log("Error", error);
+      }
+    )
+  }
   
 }
