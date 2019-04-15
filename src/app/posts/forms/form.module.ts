@@ -14,12 +14,12 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     RouterModule.forChild([
-      { 
-        path:'posts/:id', 
+      {
+        path: 'posts/:id',
         component: FormsComponent
       },
       {
-        path:'form-add',
+        path: 'form-add',
         component: FormAddComponent
       }
     ])

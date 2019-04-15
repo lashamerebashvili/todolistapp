@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
@@ -21,28 +21,28 @@ import { UserModule } from './users/user.module';
     HttpClientModule,
     RouterModule.forRoot( [
       {
-        path:'welcome', 
+        path: 'welcome',
       component: WelcomeComponent
       },
-      { 
-        path:'posts', 
+      {
+        path: 'posts',
         component: PostsComponent
       },
       {
-        path:'',
+        path: '',
         redirectTo: 'welcome',
-        pathMatch: 'full' 
+        pathMatch: 'full'
       },
       {
         path: '**',
         redirectTo: 'welcome',
-        pathMatch: 'full' 
+        pathMatch: 'full'
       }
     ]),
     FormModule,
     UserModule,
   ],
-  providers: [FormService], 
+  providers: [FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

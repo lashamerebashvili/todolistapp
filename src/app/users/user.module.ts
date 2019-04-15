@@ -12,12 +12,12 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { 
-        path:'users/:id', 
+      {
+        path: 'users/:id',
         component: UserDetailsComponent
       },
-      { 
-        path:'users', 
+      {
+        path: 'users',
         component: UsersComponent
       },
     ])

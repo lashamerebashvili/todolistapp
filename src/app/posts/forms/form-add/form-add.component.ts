@@ -24,22 +24,22 @@ export class FormAddComponent implements OnInit {
 alert: alert;
 
   constructor(public formService: FormService, private http: HttpClient, private route: ActivatedRoute,
-    private router: Router) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.alert = new alert();
   }
 
     addForm() {
-      this.http.post("https://jsonplaceholder.typicode.com/posts",
+      this.http.post('https://jsonplaceholder.typicode.com/posts',
         this.form)
         .subscribe(
         data  => {
-          console.log("POST Request is successful ", data);
-          this.alert.setAlert("New post has been successfully added !");
+          console.log('POST Request is successful ', data);
+          this.alert.setAlert('New post has been successfully added !');
         },
         error  => {
-          console.log("Error", error);
+          console.log('Error', error);
         }
         );
     }

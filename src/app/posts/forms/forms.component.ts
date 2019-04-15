@@ -12,19 +12,19 @@ import { alert } from './alert';
 
 
 export class FormsComponent implements OnInit {
-  
+
   alert: alert;
   id: any;
   posts: any;
   post: any;
 
-  constructor(public formService: FormService ,private route: ActivatedRoute,
-    private router: Router, private http: HttpClient) { }
+  constructor(public formService: FormService , private route: ActivatedRoute,
+              private router: Router, private http: HttpClient) { }
 
 
 
   ngOnInit() {
-    this.id=this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params.id;
     this.alert = new alert();
 
     this.posts = this.formService.getForms(this.id).subscribe(
@@ -36,22 +36,22 @@ export class FormsComponent implements OnInit {
 
   editPost() {
     this.formService.editForm()
-    .then((res:any) => {
-      this.formService.alert.setAlert("Post has been successfully saved !");
-    })
+    .then((res: any) => {
+      this.formService.alert.setAlert('Post has been successfully saved !');
+    });
   }
 
   deletePost() {
     this.post = this.formService.deleteForm()
     .subscribe(
       data  => {
-        console.log("DELETE Request is successful ", data);
-        this.formService.alert.setAlert("Post has been successfully deleted !");
+        console.log('DELETE Request is successful ', data);
+        this.formService.alert.setAlert('Post has been successfully deleted !');
       },
       error  => {
-        console.log("Error", error);
+        console.log('Error', error);
       }
-    )
+    );
   }
-  
+
 }

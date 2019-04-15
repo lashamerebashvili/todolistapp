@@ -10,13 +10,13 @@ export class UserDetailsComponent implements OnInit {
 
   userdetails: any[] = [];
   public userId;
-  
+
   constructor(private userDetailService: UserDetailService, private route: ActivatedRoute) { }
 
 
 
   ngOnInit(): void {
-    this.userId=this.route.snapshot.params['id'];
+    this.userId = this.route.snapshot.params.id;
     this.userDetailService.getUserDetails(this.userId).subscribe(
       (userdetails: any) => this.userdetails = userdetails
     );
