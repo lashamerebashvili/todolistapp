@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -20,7 +19,6 @@ import { UserModule } from './users/user.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule,
     RouterModule.forRoot( [
       {
         path:'welcome', 

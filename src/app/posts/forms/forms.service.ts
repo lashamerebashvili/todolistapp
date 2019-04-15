@@ -42,6 +42,6 @@ export class FormService {
 
     deleteForm() {
         return this.http.delete(this.formsUrl + "/" + this.form.id);
-      }
+    }
 
 }
