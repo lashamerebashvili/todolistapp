@@ -11,7 +11,7 @@ import { PostService } from './posts.service';
 export class PostsComponent implements OnInit {
   posts: any;
 
-  constructor(private postService: PostService ,private route: ActivatedRoute) { }
+  constructor(private postService: PostService , private route: ActivatedRoute) { }
 
   ngOnInit() {
 

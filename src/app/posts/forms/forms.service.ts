@@ -6,11 +6,11 @@ import { alert } from './alert';
 
 @Injectable({
     providedIn: 'root'
-}) 
+})
 
 export class FormService {
 
-  formsUrl = "https://jsonplaceholder.typicode.com/posts";
+  formsUrl = 'https://jsonplaceholder.typicode.com/posts';
   form: form = {
       id: 0,
       userId: 0,
@@ -20,28 +20,28 @@ export class FormService {
   alert: alert;
 
 
-    constructor(private http: HttpClient) { 
+    constructor(private http: HttpClient) {
       this.alert = new alert();
     }
 
     getForms(id) {
             return this.http.get('https://jsonplaceholder.typicode.com/posts'
-            + "?id=" + id)
+            + '?id=' + id);
     }
 
     editForm() {
-        return fetch(this.formsUrl + "/" + this.form.id, {
+        return fetch(this.formsUrl + '/' + this.form.id, {
           method: 'PUT',
           body: JSON.stringify(this.form),
           headers: {
-            "Content-type": "application/json; charset=UTF-8"
+            'Content-type': 'application/json; charset=UTF-8'
           }
         })
-        .then(response => response.json())
+        .then(response => response.json());
     }
 
     deleteForm() {
-        return this.http.delete(this.formsUrl + "/" + this.form.id);
+        return this.http.delete(this.formsUrl + '/' + this.form.id);
     }
 
 }
