@@ -17,6 +17,7 @@ export class FormsComponent implements OnInit {
   id: any;
   posts: any;
   post: any;
+  form: any;
 
   constructor(public formService: FormService , private route: ActivatedRoute,
               private router: Router, private http: HttpClient) { }
@@ -27,11 +28,15 @@ export class FormsComponent implements OnInit {
     this.id = this.route.snapshot.params.id;
     this.alert = new alert();
 
-    this.posts = this.formService.getForms(this.id).subscribe(
+    this.form = this.formService.getForms(this.id).subscribe(
       (forms: any) => {
         this.formService.form = forms[0];
       }
     );
+  }
+
+  ngOnDestroy() {
+    this.form.unsubscribe();
   }
 
   editPost() {

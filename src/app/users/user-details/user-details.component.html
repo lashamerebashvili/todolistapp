@@ -10,15 +10,15 @@
     <div class="table-responsive col-sm-12">
         <table class="table text-center">
           <thead>
-            <tr 
-            *ngFor='let userdetail of userdetails' >
-            <th [ngStyle] = "{backgroundColor: userdetail.completed?
+            <tr
+            *ngFor="let userdetail of userdetails | async" >
+              <th [ngStyle] = "{backgroundColor: userdetail.completed?
                 'green' : 'red'}">
-              Title: {{userdetail.title}}<br>
+                  Title: {{userdetail.title}}<br>
                   Completed:{{userdetail.completed}}
               </th>
             </tr>
           </thead>
         </table>
-      
+
     </div>

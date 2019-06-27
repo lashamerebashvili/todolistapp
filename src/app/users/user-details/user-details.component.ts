@@ -8,7 +8,7 @@ import { UserDetailService } from './user-details.service';
 })
 export class UserDetailsComponent implements OnInit {
 
-  userdetails: any[] = [];
+  userdetails: any;
   public userId;
 
   constructor(private userDetailService: UserDetailService, private route: ActivatedRoute) { }
@@ -17,9 +17,7 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = this.route.snapshot.params.id;
-    this.userDetailService.getUserDetails(this.userId).subscribe(
-      (userdetails: any) => this.userdetails = userdetails
-    );
+    this.userdetails = this.userDetailService.getUserDetails(this.userId);
     }
 
 }

@@ -13,14 +13,14 @@
 <div class="userTable table-responsive">
   <table class="table text-center">
     <thead>
-      <tr *ngFor='let post of posts'>
+      <tr *ngFor='let post of posts | async'>
         <th>
           <p class="title font-weight-bold">
             {{post.title}}
           </p>
           <p class="body font-weight-normal">
               {{post.body}}
-            </p>  
+          </p>
           <a class="btn btn-info pull-right" [routerLink] = "['/posts', post.id]" >
           Edit</a>
         </th>

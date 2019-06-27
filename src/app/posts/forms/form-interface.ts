@@ -1,5 +1,5 @@
 // tslint:disable-next-line: class-name
-export interface form  {
+export interface Form  {
     'userId': number;
     'id': number;
     'title': string;

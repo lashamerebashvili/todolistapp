@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { form } from './form-interface';
+import { Form } from './form-interface';
 import { alert } from './alert';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -11,12 +12,7 @@ import { alert } from './alert';
 export class FormService {
 
   formsUrl = 'https://jsonplaceholder.typicode.com/posts';
-  form: form = {
-      id: 0,
-      userId: 0,
-      title: '',
-      body: ''
-  };
+  form: Observable<Form[]>;
   alert: alert;
 
 
@@ -25,7 +21,7 @@ export class FormService {
     }
 
     getForms(id) {
-            return this.http.get('https://jsonplaceholder.typicode.com/posts'
+        return this.http.get<Form[]>('https://jsonplaceholder.typicode.com/posts'
             + '?id=' + id);
     }
 
