@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormService } from '../forms.service';
-import { form } from '../form-interface';
-import { alert } from '../alert';
+import { Form } from '../form-interface';
 
 @Component({
   selector: 'app-form-add',
@@ -13,22 +12,16 @@ import { alert } from '../alert';
 
 
 
-export class FormAddComponent implements OnInit {
-  form: form = {
+export class FormAddComponent {
+  form: Form = {
     id: 0,
     userId: 0,
     title: '',
     body: ''
 };
 
-alert: alert;
-
   constructor(public formService: FormService, private http: HttpClient, private route: ActivatedRoute,
               private router: Router) { }
-
-  ngOnInit() {
-    this.alert = new alert();
-  }
 
     addForm() {
       this.http.post('https://jsonplaceholder.typicode.com/posts',
@@ -36,7 +29,7 @@ alert: alert;
         .subscribe(
         data  => {
           console.log('POST Request is successful ', data);
-          this.alert.setAlert('New post has been successfully added !');
+          this.formService.openSnackBar('Post has been successfully added !', 'Close');
         },
         error  => {
           console.log('Error', error);

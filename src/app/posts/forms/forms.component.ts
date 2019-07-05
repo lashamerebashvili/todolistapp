@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormService } from './forms.service';
 import { HttpClient } from '@angular/common/http';
-import { alert } from './alert';
 
 @Component({
   selector: 'app-forms',
@@ -13,7 +12,6 @@ import { alert } from './alert';
 
 export class FormsComponent implements OnInit {
 
-  alert: alert;
   id: any;
   posts: any;
   post: any;
@@ -26,7 +24,6 @@ export class FormsComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
-    this.alert = new alert();
 
     this.form = this.formService.getForms(this.id).subscribe(
       (forms: any) => {
@@ -42,7 +39,7 @@ export class FormsComponent implements OnInit {
   editPost() {
     this.formService.editForm()
     .then((res: any) => {
-      this.formService.alert.setAlert('Post has been successfully saved !');
+      this.formService.openSnackBar('Post has been successfully saved !', 'Close');
     });
   }
 
@@ -51,7 +48,7 @@ export class FormsComponent implements OnInit {
     .subscribe(
       data  => {
         console.log('DELETE Request is successful ', data);
-        this.formService.alert.setAlert('Post has been successfully deleted !');
+        this.formService.openSnackBar('Post has been successfully deleted !', 'Close');
       },
       error  => {
         console.log('Error', error);

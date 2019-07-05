@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Form } from './form-interface';
-import { alert } from './alert';
-import { Observable } from 'rxjs';
+import { MatSnackBar } from '@angular/material';
 
 
 @Injectable({
@@ -12,12 +11,11 @@ import { Observable } from 'rxjs';
 export class FormService {
 
   formsUrl = 'https://jsonplaceholder.typicode.com/posts';
-  form: Observable<Form[]>;
-  alert: alert;
+  form: Form;
 
 
-    constructor(private http: HttpClient) {
-      this.alert = new alert();
+    constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
+
     }
 
     getForms(id) {
@@ -39,5 +37,11 @@ export class FormService {
     deleteForm() {
         return this.http.delete(this.formsUrl + '/' + this.form.id);
     }
+
+    openSnackBar(message: string, action: string) {
+        this._snackBar.open(message, action, {
+          duration: 2000,
+        });
+      }
 
 }

@@ -9,6 +9,8 @@ import { PostsComponent } from './posts/posts.component';
 import { FormService } from './posts/forms/forms.service';
 import { FormModule } from './posts/forms/form.module';
 import { UserModule } from './users/user.module';
+import { MatSnackBarModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +21,7 @@ import { UserModule } from './users/user.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatSnackBarModule,
     RouterModule.forRoot( [
       {
         path: 'welcome',
@@ -41,6 +44,7 @@ import { UserModule } from './users/user.module';
     ]),
     FormModule,
     UserModule,
+    BrowserAnimationsModule
   ],
   providers: [FormService],
   bootstrap: [AppComponent]
