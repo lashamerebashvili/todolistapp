@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from './posts.service';
 
-
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
@@ -14,9 +13,7 @@ export class PostsComponent implements OnInit {
   constructor(private postService: PostService , private route: ActivatedRoute) { }
 
   ngOnInit() {
-
     this.posts = this.postService.getPosts();
-
   }
 
 }

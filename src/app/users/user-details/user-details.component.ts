@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserDetailService } from './user-details.service';
+import { UserService } from 'src/app/shared/users.service';
 
 @Component({
   templateUrl: './user-details.component.html',
@@ -11,13 +11,11 @@ export class UserDetailsComponent implements OnInit {
   userdetails: any;
   public userId;
 
-  constructor(private userDetailService: UserDetailService, private route: ActivatedRoute) { }
-
-
+  constructor(private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.userId = this.route.snapshot.params.id;
-    this.userdetails = this.userDetailService.getUserDetails(this.userId);
+    this.userdetails = this.userService.getUserDetails(this.userId);
     }
 
 }

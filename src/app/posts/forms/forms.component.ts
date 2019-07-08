@@ -10,17 +10,13 @@ import { HttpClient } from '@angular/common/http';
 })
 
 
-export class FormsComponent implements OnInit {
+export class FormsComponent implements OnInit, OnDestroy {
 
   id: any;
-  posts: any;
-  post: any;
   form: any;
 
   constructor(public formService: FormService , private route: ActivatedRoute,
               private router: Router, private http: HttpClient) { }
-
-
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
@@ -34,26 +30,6 @@ export class FormsComponent implements OnInit {
 
   ngOnDestroy() {
     this.form.unsubscribe();
-  }
-
-  editPost() {
-    this.formService.editForm()
-    .then((res: any) => {
-      this.formService.openSnackBar('Post has been successfully saved !', 'Close');
-    });
-  }
-
-  deletePost() {
-    this.post = this.formService.deleteForm()
-    .subscribe(
-      data  => {
-        console.log('DELETE Request is successful ', data);
-        this.formService.openSnackBar('Post has been successfully deleted !', 'Close');
-      },
-      error  => {
-        console.log('Error', error);
-      }
-    );
   }
 
 }
