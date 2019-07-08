@@ -24,7 +24,8 @@ export class FormAddComponent {
               private router: Router) { }
 
     addForm() {
-      this.http.post('https://jsonplaceholder.typicode.com/posts',
+      if (this.form.title.length && this.form.body.length) {
+        this.http.post('https://jsonplaceholder.typicode.com/posts',
         this.form)
         .subscribe(
         data  => {
@@ -35,6 +36,6 @@ export class FormAddComponent {
           console.log('Error', error);
         }
         );
+      }
     }
-
   }
