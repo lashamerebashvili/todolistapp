@@ -12,7 +12,7 @@
   <form #postForm="ngForm">
       <div class="form-group">
           <label for="title">Title</label>
-          <input [(ngModel)]="formService.form.title"
+          <input [ngModel]="formService?.form?.title" (ngModelChange)="formService.form.title = $event"
           name="title"
           id="title"
           type="text"
@@ -21,7 +21,7 @@
       </div>
       <div class="form-group">
         <label for="body">Body</label>
-        <textarea [(ngModel)]="formService.form.body"
+        <textarea [ngModel]="formService?.form?.body" (ngModelChange)="formService.form.body = $event"
         name= "body"
         id="body"
         cols="30"
