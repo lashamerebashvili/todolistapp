@@ -1,7 +1,6 @@
 <div class="container">
-  <a class="btn btn-primary pull-right" routerLink = '/posts' >
-    Back
-  </a>
+      <button class="btn btn-primary pull-right"
+      (click)="userService.goBack()">Back</button>
 </div>
 
 <div class="container">
@@ -12,7 +11,7 @@
 <form #postForm="ngForm" ngNativeValidate>
     <div class="form-group">
       <label for="title">Title</label>
-      <input [(ngModel)]="formService.form.title"
+      <input (ngModel)="formService.form.title"
       name="title"
       id="title"
       type="text"
@@ -22,7 +21,7 @@
     </div>
     <div class="form-group">
       <label for="body">Body</label>
-      <textarea [(ngModel)]="formService.form.body"
+      <textarea (ngModel)="formService.form.body"
       name= "body"
       id="body"
       cols="30"
@@ -33,5 +32,17 @@
     </div>
     <button type="submit" class="btn btn-success" [disabled]="!formService.form.title || !formService.form.body" (click) = "formService.addForm()">Add</button>
 
+    <table class="table text-center mt-5">
+      <thead>
+      <tr>
+        <p class="title font-weight-bold">
+            {{formService.form.title}}
+        </p>
+        <p class="body font-weight-normal">
+            {{formService.form.body}}
+        </p>
+      </tr>
+      </thead>
+    </table>
 </form>
 </div>

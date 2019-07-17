@@ -8,6 +8,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class WelcomeComponent {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
 
 }

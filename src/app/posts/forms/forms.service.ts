@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Form } from './form-interface';
 import { MatSnackBar } from '@angular/material';
+import { Observable } from 'rxjs';
+import { UserService } from 'src/app/shared/users.service';
 
 @Injectable({
     providedIn: 'root'
@@ -18,7 +20,8 @@ export class FormService {
 };
 
     // tslint:disable-next-line:variable-name
-    constructor(private http: HttpClient, private _snackBar: MatSnackBar) {}
+    constructor(private http: HttpClient, private _snackBar: MatSnackBar
+      ) {}
 
     getForms(id) {
         return this.http.get<Form[]>('https://jsonplaceholder.typicode.com/posts'
@@ -40,11 +43,11 @@ export class FormService {
 
     deleteForm() {
         this.http.delete(this.formsUrl + '/' + this.form.id).subscribe(
-          data  => {
+          data => {
             console.log('DELETE Request is successful ', data);
             this.openSnackBar('Post has been successfully deleted !', 'Close');
           },
-          error  => {
+          error => {
             console.log('Error', error);
           }
         );
@@ -56,16 +59,16 @@ export class FormService {
         });
     }
 
-    addForm() {
-          return this.http.post('https://jsonplaceholder.typicode.com/posts',
+    addForm(): void {
+          this.http.post<Form>('https://jsonplaceholder.typicode.com/posts',
           this.form).subscribe(
-            data  => {
+            data => {
               console.log('POST Request is successful ', data);
               this.openSnackBar('Post has been successfully added !', 'Close');
             },
-            error  => {
+            error => {
               console.log('Error', error);
             }
             );
-      }
+    }
 }

@@ -1,14 +1,14 @@
 <div class="container">
-    <a class="btn btn-primary pull-right" routerLink = '' >
-      Back
-    </a>
+    <button class="btn btn-primary pull-right"
+      (click)="userService.goBack()">Back
+    </button>
     <a class="btn btn-info pull-right mr-2" routerLink = "/form-add" >
       Add
     </a>
 </div>
 
 <div class="container">
-    <h2>Users:</h2>
+    <h2>Posts:</h2>
   </div>
 <div class="userTable table-responsive">
   <table class="table text-center">

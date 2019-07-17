@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PostService } from './posts.service';
+import { UserService } from '../shared/users.service';
 
 @Component({
   selector: 'app-posts',
@@ -10,7 +10,9 @@ import { PostService } from './posts.service';
 export class PostsComponent implements OnInit {
   posts: any;
 
-  constructor(private postService: PostService , private route: ActivatedRoute) { }
+  constructor(private postService: PostService,
+              public userService: UserService
+    ) { }
 
   ngOnInit() {
     this.posts = this.postService.getPosts();

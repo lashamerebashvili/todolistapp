@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormService } from '../forms.service';
+import { UserService } from 'src/app/shared/users.service';
 
 @Component({
   selector: 'app-form-add',
@@ -9,6 +10,8 @@ import { FormService } from '../forms.service';
 
 export class FormAddComponent {
 
-  constructor(public formService: FormService) {}
+  constructor(public formService: FormService,
+              public userService: UserService) {
+    }
+}
 
-  }

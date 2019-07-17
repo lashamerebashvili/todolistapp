@@ -9,9 +9,7 @@ import { UserService } from '../shared/users.service';
 export class UsersComponent implements OnInit {
 users: any;
 
-  constructor(private userService: UserService) {
-
-  }
+  constructor(public userService: UserService) {}
 
   ngOnInit(): void {
     this.users = this.userService.getUsers();
