@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormAddComponent } from './form-add/form-add.component';
 import { FormsComponent } from './forms.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FormAddComponent } from '../form-add/form-add.component';
 
 @NgModule({
   declarations: [

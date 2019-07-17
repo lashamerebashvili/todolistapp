@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Form } from './form-interface';
 import { MatSnackBar } from '@angular/material';
-import { Observable } from 'rxjs';
-import { UserService } from 'src/app/shared/users.service';
 
 @Injectable({
     providedIn: 'root'
@@ -21,54 +19,41 @@ export class FormService {
 
     // tslint:disable-next-line:variable-name
     constructor(private http: HttpClient, private _snackBar: MatSnackBar
-      ) {}
+    ) {}
 
     getForms(id) {
-        return this.http.get<Form[]>('https://jsonplaceholder.typicode.com/posts'
-            + '?id=' + id);
+      return this.http.get<Form[]>('https://jsonplaceholder.typicode.com/posts'
+          + '?id=' + id);
     }
 
     editForm() {
-        return fetch(this.formsUrl + '/' + this.form.id, {
-          method: 'PUT',
-          body: JSON.stringify(this.form),
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8'
-          }
-        })
-        .then(response => response.json()).then((res: any) => {
-          this.openSnackBar('Post has been successfully saved !', 'Close');
-        });
+      return fetch(this.formsUrl + '/' + this.form.id, {
+        method: 'PUT',
+        body: JSON.stringify(this.form),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8'
+        }
+      })
+      .then(response => response.json()).then((res: any) => {
+        this.openSnackBar('Post has been successfully saved !', 'Close');
+      });
     }
 
     deleteForm() {
-        this.http.delete(this.formsUrl + '/' + this.form.id).subscribe(
-          data => {
-            console.log('DELETE Request is successful ', data);
-            this.openSnackBar('Post has been successfully deleted !', 'Close');
-          },
-          error => {
-            console.log('Error', error);
-          }
-        );
+      this.http.delete(this.formsUrl + '/' + this.form.id).subscribe(
+        data => {
+          console.log('DELETE Request is successful ', data);
+          this.openSnackBar('Post has been successfully deleted !', 'Close');
+        },
+        error => {
+          console.log('Error', error);
+        }
+      );
     }
 
     openSnackBar(message: string, action: string) {
-        this._snackBar.open(message, action, {
-          duration: 2000,
-        });
-    }
-
-    addForm(): void {
-          this.http.post<Form>('https://jsonplaceholder.typicode.com/posts',
-          this.form).subscribe(
-            data => {
-              console.log('POST Request is successful ', data);
-              this.openSnackBar('Post has been successfully added !', 'Close');
-            },
-            error => {
-              console.log('Error', error);
-            }
-            );
+      this._snackBar.open(message, action, {
+        duration: 2000,
+      });
     }
 }
