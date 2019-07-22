@@ -2,9 +2,9 @@
     <button class="btn btn-primary pull-right"
       (click)="userService.goBack()">Back
     </button>
-    <a class="btn btn-info pull-right mr-2" routerLink = "/form-add" >
+    <button class="btn btn-info pull-right mr-2" routerLink = "/form-add" >
       Add
-    </a>
+    </button>
 </div>
 
 <div class="container">
@@ -21,8 +21,8 @@
           <p class="body font-weight-normal">
               {{post.body}}
           </p>
-          <a class="btn btn-info pull-right" [routerLink] = "['/posts', post.id]" >
-          Edit</a>
+          <button class="btn btn-info pull-right" [routerLink] = "['/posts', post.id]" >
+          Edit</button>
         </th>
       </tr>
     </thead>

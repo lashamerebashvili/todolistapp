@@ -13,8 +13,8 @@
     <thead>
       <tr *ngFor="let user of users | async">
         <th>{{user.name}}<br>{{user.email}}
-          <a class="btn btn-info pull-right" [routerLink] = "['/users', user.id]" >
-          Details</a>
+          <button class="btn btn-info pull-right" [routerLink] = "['/users', user.id]" >
+          Details</button>
         </th>
       </tr>
     </thead>
