@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
 import { FormAddService } from '../posts/form-add/form-add.service';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +11,8 @@ export class UserService {
     location: Location;
 
     constructor(private http: HttpClient, location: Location,
-                public formAddService: FormAddService
+                public formAddService: FormAddService,
+                private snackBar: MatSnackBar
         ) {
         this.location = location;
     }
@@ -26,5 +28,6 @@ export class UserService {
     goBack(): void {
         this.location.back();
         this.formAddService.resetForm();
+        this.snackBar.dismiss();
     }
 }
