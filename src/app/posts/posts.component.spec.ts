@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PostsComponent } from './posts.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material';
 
 describe('PostsComponent', () => {
   let component: PostsComponent;
@@ -8,7 +12,12 @@ describe('PostsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostsComponent ]
+      declarations: [ PostsComponent ],
+      imports: [
+        HttpClientTestingModule,
+        ReactiveFormsModule,
+        MatSnackBarModule,
+        RouterTestingModule]
     })
     .compileComponents();
   }));

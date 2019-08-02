@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UsersComponent } from './users.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule.forChild([
       {
         path: 'users/:id',

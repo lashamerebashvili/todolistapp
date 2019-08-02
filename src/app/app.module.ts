@@ -11,6 +11,7 @@ import { FormModule } from './posts/forms/form.module';
 import { UserModule } from './users/user.module';
 import { MatSnackBarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       }
     ]),
     FormModule,
+    FormsModule,
     UserModule,
     BrowserAnimationsModule
   ],
